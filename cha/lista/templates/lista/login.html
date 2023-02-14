@@ -1,0 +1,17 @@
+{% extends "lista/shop_base.html" %}
+{% block body_block %}
+  <div class="jumbotron">
+      <form class="mx-auto w-25 form-signin" method="post" action="{% url 'lista:login' %}">
+          {% csrf_token %}
+          <div class="form-label-group">
+            <input type="username" name="username" class="form-control" placeholder="Username" required autofocus>
+          </div>
+          <br/>
+          <div class="form-label-group">
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
+          </div>
+          <br/>
+          <input type="submit" class="btn btn-lg btn-primary btn-block" name="" value="Login">
+      </form>
+  </div>
+{% endblock %}

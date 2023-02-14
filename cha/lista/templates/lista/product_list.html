@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <title>Django Cards</title>
+  <h1>Escolha um presente para nós</h1>
+</head>
+<body>
+  <!-- To place above the incident-modal html -->
+<script>
+  $(document).on("click", ".open-incident", function (e) {
+    console.log("entrou no script")
+    e.preventDefault();
+    var $popup = $("#popup");
+    var popup_url = $(this).data("popup-url");
+    $(".modal-body", $popup).load(popup_url, function () {
+      $popup.modal("show");
+    });
+  });
+</script>
+<div style="display: flex; flex-direction: row; flex-wrap: wrap">
+
+  {% for product in product_list %}
+  {#  Single Card Template:#}
+  <div class="card" style="width: 18rem; margin: 10px">
+    <img src="media/{{product.imagem}}" width="200" height="200" class="card-img-top" >
+    <div class="card-body">
+      <div style="display: flex; flex-direction: row">
+        <h5 class="card-title">{{ product.name }} {{product.id}}</h5>
+        {#  Colored cirlce:#}
+        <div style="
+          background: {{ card.color }};
+          width: 20px;
+          height: 20px;
+          margin-left: 10px;
+          border-radius: 50%;
+        "></div>
+      </div>
+      <p class="card-text">{{ card.description }}</p>
+      <a href="{% url 'lista:product_update' id=product.id %}" class="open-incident btn btn-primary"  value="{{ product.id }}" data-toggle="modal" data-id="{{ product.id }}" data-popup-url="{% url 'lista:product_update' id=product.id %} data-target="#myModal">Escolher</a>
+     <div id="popup" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+  <form name="form2" id="form2" class="form-horizontal" method="post" action="{% url 'lista:product_update' id=product.id %}">
+      {% csrf_token %}
+ 
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Preencha suas informações</h4>
+          <h5 class="card-title">{{ product.name }} {{product.id}}</h5>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="control-label col-sm-3" for="guest_name">Nome:</label>
+            <div class="col-sm-8">
+              <input type="text" name="guest_name" maxlength="50" required id="id_guest_name">
+          </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-3" for="guest_email">Email:</label>
+            <div class="col-sm-8">
+              <input type="text" name="guest_email" maxlength="50" required id="id_guest_email">
+          </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button type="submit" data-id="{{ product.id }}" class="btn btn-primary">Salvar</button>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+      </div>
+    </div>
+  {% endfor %}
+  {% include "lista/product-modal.html" %}
+
+</div>
+
+</body>
+</html>

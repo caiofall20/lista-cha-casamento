@@ -1,0 +1,57 @@
+{% extends "lista/shop_base.html" %}
+{% block body_block %}
+{% load poll_extras %}
+  <div class="jumbotron">
+    {% for gift_list in reports %}
+    <p class="display-4">{{gift_list.name}}</p>
+    <p class="lead">Purchased gifts</p>
+    <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Price</th>
+        <th scope="col">Purchased</th>
+      </tr>
+    </thead>
+      {% for gift in gift_list.gifts.all|filter_purchased_gifts:gift_list.gifts.all %}
+      <tbody>
+        <tr>
+          <th scope="row">{{gift.product.id}}</th>
+          <td>{{gift.product.name}}</td>
+          <td>{{gift.product.brand}}</td>
+          <td>{{gift.product.price}}</td>
+          <td>{{gift.bought_quantity}}</td>
+        <tr>
+      {% endfor %}
+    </tbody>
+    </table>
+    <p class="lead">Not purchased gifts</p>
+    <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Price</th>
+        <th scope="col">Not purchased</th>
+      </tr>
+    </thead>
+      <tbody>
+      {% for gift in gift_list.gifts.all|filter_not_purchased_gifts:gift_list.gifts.all %}
+        <tr>
+          <th scope="row">{{gift.product.id}}</th>
+          <td>{{gift.product.name}}</td>
+          <td>{{gift.product.brand}}</td>
+          <td>{{gift.product.price}}</td>
+          <td>{{gift.quantity|subtract:gift.bought_quantity}}</td>
+        <tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% endfor %}
+  </div>
+
+
+{% endblock %}

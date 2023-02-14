@@ -1,0 +1,402 @@
+[
+    {
+        "id": 1,
+        "name": "Jarra de suco",
+        "description": "Jarra para tomar suco",
+        "status": "True",
+        "imagem": "/upload/jarra.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 2,
+        "name": "Copo de água",
+        "description": "Copo para tomar água",
+        "status": "True",
+        "imagem": "/upload/copo.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 3,
+        "name": "Copo de vinho",
+        "description": "Copo para tomar vinho",
+        "status": "True",
+        "imagem": "/upload/copovinho.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 4,
+        "name": "Garrafa de água",
+        "description": "Garrafa para armazenar água",
+        "status": "True",
+        "imagem": "/upload/garrafa.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 5,
+        "name": "Caneca de café",
+        "description": "Caneca para beber café",
+        "status": "True",
+        "imagem": "/upload/caneca.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 6,
+        "name": "Xícara de chá",
+        "description": "Xícara para beber chá",
+        "status": "True",
+        "imagem": "/upload/xicara.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 7,
+        "name": "Prato de sopa",
+        "description": "Prato para servir sopa",
+        "status": "True",
+        "imagem": "/upload/prato.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 8,
+        "name": "Colher de sopa",
+        "description": "Colher para servir sopa",
+        "status": "True",
+        "imagem": "/upload/colher.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 9,
+        "name": "Garfo de sobremesa",
+        "description": "Garfo para servir sobremesa",
+        "status": "True",
+        "imagem": "/upload/garfo.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 10,
+        "name": "Faca de sobremesa",
+        "description": "Faca para servir sobremesa",
+        "status": "True",
+        "imagem": "/upload/faca.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 11,
+        "name": "Bandeja para servir",
+        "description": "Bandeja para servir refeições",
+        "status": "True",
+        "imagem": "/upload/bandeja.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 12,
+        "name": "Cesto de pão",
+        "description": "Cesto para servir pão",
+        "status": "True",
+        "imagem": "/upload/cesto.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 13,
+        "name": "Guardanapo de tecido",
+        "description": "Guardanapo de tecido",
+        "status": "True",
+        "imagem": "/upload/guardanapo.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 14,
+        "name": "Talheres de jantar",
+        "description": "Talheres de jantar",
+        "status": "True",
+        "imagem": "/upload/talheres.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 15,
+        "name": "Prato de sobremesa",
+        "description": "Prato para servir sobremesa",
+        "status": "True",
+        "imagem": "/upload/pratoso.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 16,
+        "name": "Porta guardanapo",
+        "description": "Porta guardanapo para decoração",
+        "status": "True",
+        "imagem": "/upload/porta.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 17,
+        "name": "Panela de pressão",
+        "description": "Panela para cozinhar",
+        "status": "True",
+        "imagem": "/upload/panela.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 18,
+        "name": "Frigideira",
+        "description": "Frigideira para cozinhar",
+        "status": "True",
+        "imagem": "/upload/frigideira.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 19,
+        "name": "Tigela",
+        "description": "Tigela para servir comida",
+        "status": "True",
+        "imagem": "/upload/tigela.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 20,
+        "name": "Assadeira",
+        "description": "Assadeira para assar",
+        "status": "True",
+        "imagem": "/upload/assadeira.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 21,
+        "name": "Espátula",
+        "description": "Espátula para usar na cozinha",
+        "status": "True",
+        "imagem": "/upload/espatula.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 22,
+        "name": "Peneira",
+        "description": "Peneira para usar na cozinha",
+        "status": "True",
+        "imagem": "/upload/peneira.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 23,
+        "name": "Concha",
+        "description": "Concha para usar na cozinha",
+        "status": "True",
+        "imagem": "/upload/concha.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 24,
+        "name": "Escorredor de pratos",
+        "description": "Escorredor para usar na cozinha",
+        "status": "True",
+        "imagem": "/upload/escorredor.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 25,
+        "name": "Forma de bolo",
+        "description": "Forma para usar na cozinha",
+        "status": "True",
+        "imagem": "/upload/forma.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 26,
+        "name": "Faqueiro",
+        "description": "Faqueiro para usar na cozinha",
+        "status": "True",
+        "imagem": "/upload/faqueiro.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 27,
+        "name": "Batedor de ovos",
+        "description": "Batedor de ovos para usar na cozinha",
+        "status": "True",
+        "imagem": "/upload/batedor.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 28,
+        "name": "Ralador de queijo",
+        "description": "Ralador de queijo para usar na cozinha",
+        "status": "True",
+        "imagem": "/upload/ralador.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 29,
+        "name": "Liquidificador",
+        "description": "Liquidificador para usar na cozinha",
+        "status": "True",
+        "imagem": "/upload/liquidificador.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 30,
+        "name": "Fogão",
+        "description": "Fogão para usar na cozinha",
+        "status": "True",
+        "imagem": "/upload/fogao.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 31,
+        "name": "Abajur",
+        "description": "Abajur para decorar",
+        "status": "True",
+        "imagem": "/upload/abajur.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 32,
+        "name": "Cortina",
+        "description": "Cortina para decorar",
+        "status": "True",
+        "imagem": "/upload/cortina.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 33,
+        "name": "Tapete",
+        "description": "Tapete para decorar",
+        "status": "True",
+        "imagem": "/upload/tapete.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 34,
+        "name": "Almofada",
+        "description": "Almofada para decorar",
+        "status": "True",
+        "imagem": "/upload/almofada.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 35,
+        "name": "Quadro",
+        "description": "Quadro para decorar",
+        "status": "True",
+        "imagem": "/upload/quadro.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 36,
+        "name": "Estanho",
+        "description": "Estanho para organizar objetos",
+        "status": "True",
+        "imagem": "/upload/estanho.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 37,
+        "name": "Criado Mudo",
+        "description": "Criado mudo para decorar",
+        "status": "True",
+        "imagem": "/upload/criado.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 38,
+        "name": "Poltrona",
+        "description": "Poltrona para decorar",
+        "status": "True",
+        "imagem": "/upload/poltrona.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 39,
+        "name": "Poltrona",
+        "description": "Poltrona para decorar",
+        "status": "True",
+        "imagem": "/upload/poltrona.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    },
+    {
+        "id": 40,
+        "name": "Poltrona",
+        "description": "Poltrona para decorar",
+        "status": "True",
+        "imagem": "/upload/poltrona.webp",
+        "guest_name": "Convidado",
+        "description": "Convidado",
+        "in_stock_quantity": 1
+    }
+]

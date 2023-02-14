@@ -1,0 +1,17 @@
+setup.py
+cha/__init__.py
+cha/asgi.py
+cha/settings.py
+cha/urls.py
+cha/wsgi.py
+cha_casamento.egg-info/PKG-INFO
+cha_casamento.egg-info/SOURCES.txt
+cha_casamento.egg-info/dependency_links.txt
+cha_casamento.egg-info/requires.txt
+cha_casamento.egg-info/top_level.txt
+lista/__init__.py
+lista/admin.py
+lista/apps.py
+lista/models.py
+lista/tests.py
+lista/views.py
