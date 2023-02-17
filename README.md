@@ -16,6 +16,7 @@ Para instalar as dependências do projeto utilize o seguinte comando:
 ```bash
 pip install -r requirements.txt
 ```
+É preciso entrar no ambiente virtual para rodar o projeto.
 
 Para rodar o projeto utlize:
 ```bash
