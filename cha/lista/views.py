@@ -145,7 +145,7 @@ def product_update(request, id):
     # print(product.id)
     print(id)
     product = Product.objects.get(id=id)
-
+    product.status = False
     if request.method == 'POST':
         form = ProductForm(request.POST, instance=product)
         if form.is_valid():

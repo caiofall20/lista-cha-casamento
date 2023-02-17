@@ -37,7 +37,7 @@
     {# Single Card Template:#}
     <div class="card" style="width: 18rem; margin: 10px">
       <img src="media/{{product.imagem}}" width="200" height="200" class="card-img-top">
-      <div class="card-body">
+      <div class="card-body" {% if product.status %} style="" {% else %} style="text-decoration: line-through;" {% endif %}>
         <div style="display: flex; flex-direction: row">
           <h5 class="card-title">{{ product.name }} {{product.id}}</h5>
           {# Colored cirlce:#}
@@ -49,11 +49,11 @@
           border-radius: 50%;
         "></div>
         </div>
-        <p class="card-text">{{ card.description }}</p>
+        <p class="card-text" >{{ card.description }}</p>
         <button href="{% url 'lista:product_update' id=product.id %}" class="open-incident btn btn-info"
           value="{{ product.id }}" data-toggle="modal" data-id="{{ product.id }}"
           data-popup-url="{% url 'lista:product_update' id=product.id %}" data-target="#exampleModal{{product.id}}"
-          data-bs-toggle="modal" data-bs-target="#exampleModal{{product.id}}">Escolher</button>
+          data-bs-toggle="modal" data-bs-target="#exampleModal{{product.id}}" {% if product.status %} style="" {% else %} disabled style="text-decoration: line-through;" {% endif %}" >Escolher</button>
 
         <form name="form2" id="form2" class="form-horizontal" method="post"
           action="{% url 'lista:product_update' id=product.id %}">
@@ -70,7 +70,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                  <h5 class="card-title">{{ product.name }} {{product.id}}</h5>
+                  <h5 class="card-title">{{ product.name }} {{product.id}} {{product.status}}</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
