@@ -1,9 +1,9 @@
-{% extends "lista/shop_base.html" %}
+
 {% block body_block %}
   <div class="jumbotron">
     <h1 class="display-4">Currently selected gifts</h1>
-    {% for gift_list in gift_lists %}
-    <p class="lead">{{gift_list.name}}</p>
+    {% for product in product_list %}
+    <p class="lead">{{product.name}}</p>
     <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -19,17 +19,17 @@
         <th scope="col"></th>
       </tr>
     </thead>
-      {% for gift in gift_list.gifts.all %}
+      {% for product in product_list %}
       <tbody>
         <tr>
-          <th scope="row">{{gift.product.id}}</th>
-          <td>{{gift.product.name}}</td>
-          <td>{{gift.product.brand}}</td>
-          <td>{{gift.product.price}}</td>
-          <td>{{gift.product.in_stock_quantity}}</td>
-          <td>{{gift.added}}</td>
-          <td>{{gift.quantity}}</td>
-          <td>{{gift.bought_quantity}}</td>
+          <th scope="row">{{product.id}}</th>
+          <td>{{product.name}}</td>
+          <td>{{product.brand}}</td>
+          <td>{{product.price}}</td>
+          <td>{{product.in_stock_quantity}}</td>
+          <td>{{added}}</td>
+          <td>{{quantity}}</td>
+          <td>{{bought_quantity}}</td>
           <td>
            {% if user.is_authenticated %}
            <form action="{% url 'lista:gifts' %}" method="GET">

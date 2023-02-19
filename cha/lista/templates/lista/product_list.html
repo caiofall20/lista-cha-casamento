@@ -1,3 +1,4 @@
+{% load static %}
 <html lang="en">
 
 <head>
@@ -10,17 +11,19 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
     integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
     crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
 
   <title>Django Cards</title>
-  <h1>Escolha um presente para nós</h1>
 </head>
-
-<body>
   <!-- To place above the incident-modal html -->
   <script>
     $(document).ready(function () {
+      swal("Obrigada", "Te esperamos no dia 18 de Março para comemorar conosco essa data especial!","success");
       $('.open-incident').click(function (e) {
         e.preventDefault();
         $('#modal').modal('show');
@@ -30,30 +33,46 @@
         $('#modal').modal('hide');
       });
     });
-  </script>
-  <div style="display: flex; flex-direction: row; flex-wrap: wrap">
 
+    $(window).on('load', function(){
+      setTimeout(function() { 
+        $('body').addClass('overflow-show');
+        $('.loading').addClass('d-none');
+      }, 2500);
+    });    
+</script>
+
+<body>
+  <div class="loading d-block r">
+    <div class="load">
+      <div class="rhombus">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+    </div>
+      <div class="textLoading">
+          <p>Carol e Caio</P>
+      </div>
+  </div>
+  </div>
+  <header class="header-main">
+    <img class="responsive" src="media/upload/header.png" alt="Header Carol & Caio">
+  </header>
+  <main>
+    <div class="content">
+      <h1 class="mt-4 mb-2 p-5">Lista de Presentes do nosso Chá de Panela</h1>
+   <div class="container">
+    <div class="row">
     {% for product in product_list %}
     {# Single Card Template:#}
-    <div class="card" style="width: 18rem; margin: 10px">
-      <img src="media/{{product.imagem}}" width="200" height="200" class="card-img-top">
+    <div class="card col-lg-3 col-md-4 col-sm-6 col-12 my-3">
+      <img src="media/{{product.imagem}}" width="200" height="200" class="card-img-top responsive" {% if product.status %} style="" {% else %} style="opacity:0.5;""  {% endif %}>
       <div class="card-body" {% if product.status %} style="" {% else %} style="text-decoration: line-through;" {% endif %}>
-        <div style="display: flex; flex-direction: row">
-          <h5 class="card-title">{{ product.name }} {{product.id}}</h5>
-          {# Colored cirlce:#}
-          <div style="
-          background: {{ card.color }};
-          width: 20px;
-          height: 20px;
-          margin-left: 10px;
-          border-radius: 50%;
-        "></div>
-        </div>
-        <p class="card-text" >{{ card.description }}</p>
-        <button href="{% url 'lista:product_update' id=product.id %}" class="open-incident btn btn-info"
+        <h5 class="card-title" style="text-align:center;">{{ product.name }}</h5>
+        <hr style="color: #808080;">
+        <button href="{% url 'lista:product_update' id=product.id %}" class="open-incident btn choose"
           value="{{ product.id }}" data-toggle="modal" data-id="{{ product.id }}"
           data-popup-url="{% url 'lista:product_update' id=product.id %}" data-target="#exampleModal{{product.id}}"
-          data-bs-toggle="modal" data-bs-target="#exampleModal{{product.id}}" {% if product.status %} style="" {% else %} disabled style="text-decoration: line-through;" {% endif %}" >Escolher</button>
+          data-bs-toggle="modal" data-bs-target="#exampleModal{{product.id}}" {% if product.status %} style="" {% else %} disabled style="background-color:#808080;border: 1px solid #808080;" {% endif %}" ><p><i class="fa-regular fa-heart mr-2"></i> Escolher</p></button>
 
         <form name="form2" id="form2" class="form-horizontal" method="post"
           action="{% url 'lista:product_update' id=product.id %}">
@@ -61,36 +80,34 @@
 
           <!-- Modal content-->
           <!-- Button trigger modal -->
-      
-
           <!-- Modal -->
           <div class="modal fade" id="exampleModal{{product.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                  <h5 class="card-title">{{ product.name }} {{product.id}} {{product.status}}</h5>
+                  <h6 class="modal-title" id="exampleModalLabel">Você escolheu nos presentear com <b>{{ product.name }}</b></h6>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <div class="form-group">
-                    <label class="control-label col-sm-3" for="guest_name">Nome:</label>
-                    <div class="col-sm-8">
-                      <input type="text" name="guest_name" maxlength="50" required id="id_guest_name">
+                  <p>Para continuar, preencha seu nome e seu email:</p>
+                  <div class="p-3 mt-2">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-signature"></i></span>
+                      </div>
+                      <input type="text" name="guest_name" class="form-control" placeholder="Nome" aria-label="Nome" maxlength="50" required id="id_guest_name">
                     </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="control-label col-sm-3" for="guest_email">Email:</label>
-                    <div class="col-sm-8">
-                      <input type="text" name="guest_email" maxlength="50" required id="id_guest_email">
+                    <div class="input-group my-2">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-at"></i></span>
+                      </div>
+                      <input type="email" name="guest_email" class="form-control" placeholder="Email" aria-label="Email" maxlength="50" required id="id_guest_email">
                     </div>
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="submit" data-id="{{ product.id }}" class="btn btn-primary">Salvar</button>
+                  <button type="submit" data-id="{{ product.id }}" class="btn salvar">Salvar</button>
                 </div>
               </div>
             </div>
@@ -98,13 +115,19 @@
 
       </div>
     </div>
-    </form>
-
-    {% endfor %}
-    {% include "lista/product-modal.html" %}
-
-  </div>
-
+ 
+  </form>
+  
+  {% endfor %}
+  {% include "lista/product-modal.html" %}
+  
+</div>
+</div>
+</div>
+</main>
+  <footer>
+    <h1>Obrigado!</h1>
+  </footer>
 </body>
 
 </html>
