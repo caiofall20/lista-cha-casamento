@@ -21,10 +21,23 @@
   <title>Django Cards</title>
 </head>
   <!-- To place above the incident-modal html -->
+ <script>
+  function myFunction() {
+    swal("Obrigada", "Te esperamos no dia 18 de Março para comemorar conosco essa data especial!", "success");
+  }
+</script>
+
   <script>
-    $(document).ready(function () {
-      swal("Obrigada", "Te esperamos no dia 18 de Março para comemorar conosco essa data especial!","success");
+     
+      $('#botaoSalvar').click(function (e) {
+          console.log('Botão id="pesquisarId" clicado e função disparada');
+          alert('ENTROU')
+          swal("Obrigada", "Te esperamos no dia 18 de Março para comemorar conosco essa data especial!", "success");
+        });
+       
+    
       $('.open-incident').click(function (e) {
+        alert('abriu o modal')
         e.preventDefault();
         $('#modal').modal('show');
       });
@@ -32,15 +45,15 @@
         e.preventDefault();
         $('#modal').modal('hide');
       });
-    });
+   
 
-    $(window).on('load', function(){
-      setTimeout(function() { 
+    $(window).on('load', function () {
+      setTimeout(function () {
         $('body').addClass('overflow-show');
         $('.loading').addClass('d-none');
       }, 2500);
-    });    
-</script>
+    });  
+  </script>
 
 <body>
   <div class="loading d-block r">
@@ -107,7 +120,7 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="submit" data-id="{{ product.id }}" class="btn salvar">Salvar</button>
+                  <button type="submit" id="botaoSalvar" name="salvarPresente" onclick="myFunction()" data-id="{{ product.id }}" class="btn salvar">Salvar</button>
                 </div>
               </div>
             </div>

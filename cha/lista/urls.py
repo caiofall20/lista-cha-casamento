@@ -6,8 +6,8 @@ from django.conf.urls.static import static
 app_name = 'lista'
 
 urlpatterns = [
-    path('', login_required(views.ProductListView.as_view()), name='list'),
-    path('gifts/', views.GiftListView.as_view(), name='gifts'),
+    path('', views.ProductListView.as_view(), name='list'),
+    path('login/gifts/', (views.GiftListView.as_view()), name='gifts'),
     path('report/', login_required(views.ReportView.as_view()), name='report'),
     path('login/', views.LoginView.as_view(), name='login'),
     path('logout/', views.user_logout, name='logout'),

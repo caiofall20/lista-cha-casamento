@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from lista import views
 urlpatterns = [
-    path('', views.IndexView.as_view(), name='index'),
-    path('lista/', include('lista.urls', namespace='lista')),
+    #path('', views.IndexView.as_view(), name='index'),
+    path('', include('lista.urls', namespace='lista')),
     path('admin/', admin.site.urls),
 ]

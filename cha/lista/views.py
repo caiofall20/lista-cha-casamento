@@ -1,9 +1,11 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import ValidationError
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+from django.contrib import messages
 from django.views import View
 from django.views.generic import TemplateView, ListView
 from . import models
@@ -11,7 +13,7 @@ from django.contrib import messages
 from django.views.generic import DetailView
 from lista.models import Product
 from .forms import ProductForm
-
+import time
 class IndexView(TemplateView):
     template_name = 'lista/index.html'
 
@@ -39,20 +41,22 @@ class ProductListView(ListView):
         messages.info(self.request, "Successfully added gift to gift list")
 
 
+
+
 class GiftListView(ListView):
     context_object_name = 'gift_lists'
     template_name = 'lista/gift_list.html'
-    model = models.Gift_list
+    model = models.Product
 
     def get_queryset(self):
-        if self.request.method == 'GET':
-            delete_gift_id = self.request.GET.get('delete_gift_id', None)
-            buy_gift_id = self.request.GET.get('buy_gift_id', None)
-            if delete_gift_id is not None:  # TODO handle delete if one gift was already bought
-                self.delete_gift(delete_gift_id)
-            if buy_gift_id is not None:
-                self.buy_gift(buy_gift_id)
-        return models.Gift_list.objects.all()
+            user = self.request.user
+            if not user or not user.is_authenticated:
+                return HttpResponseRedirect('login/')
+            if self.request.method == 'GET':
+                product_id = self.request.GET.get('product_id', None)
+                if product_id is not None:
+                    self.add_product(product_id)
+            return models.Product.objects.all()
 
     def delete_gift(self, gift_id):
         try:
@@ -96,7 +100,7 @@ class LoginView(View):
                 messages.info(self.request, "Successfully logged in")
             else:
                 messages.error(self.request, "Inactive user.")
-            return HttpResponseRedirect(reverse('index'))
+            return HttpResponseRedirect('gifts/')
         else:
             messages.error(self.request, "Invalid login details supplied")
         return HttpResponseRedirect(reverse('lista:login'))
@@ -105,8 +109,7 @@ class LoginView(View):
 @login_required
 def user_logout(request):
     logout(request)
-    return HttpResponseRedirect(reverse('index'))
-
+    return render(request, 'lista/gift_list.html')
 
 
 class EmpImageDisplay(DetailView):
@@ -139,11 +142,11 @@ def salva_convidado(request):
 
 def product_update(request, id):
     objeto_id = request.POST.get('guest_name')
-    print(objeto_id)
-    print(list(request.POST.items()))
+    #print(objeto_id)
+    #print(list(request.POST.items()))
     # product = Product.objects.get(id=objeto_id)
     # print(product.id)
-    print(id)
+    #print(id)
     product = Product.objects.get(id=id)
     product.status = False
     if request.method == 'POST':
@@ -151,8 +154,9 @@ def product_update(request, id):
         if form.is_valid():
             # update the existing `Band` in the database
             form.save()
+            time.sleep(3)
             # redirect to the detail page of the `Band` we just updated
-            return HttpResponseRedirect('/lista/')
+            return HttpResponseRedirect('/')
     else:
         form = ProductForm(instance=product)
 
