@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;300;500;700&display=swap');
 
-
 @font-face {
-    font-family: 'battalion';
+    font-family: 'Battalion';
     src: local('Battalion'),
-    url('../static/fonts/Battalion.ttf') format("truetype");
+    url('../fonts/Battalion.ttf')format('ttf');
 }
 
 html, body, div, span, applet, object, iframe,
