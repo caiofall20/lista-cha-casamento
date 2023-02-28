@@ -286,11 +286,6 @@ footer{
     }   
 }
 
-@media screen and (max-device-width: 500px) {
-    .cards{
-        grid-template-columns: 1fr;
-    }   
-}
 
   
   
