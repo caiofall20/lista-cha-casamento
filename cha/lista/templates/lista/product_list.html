@@ -1,4 +1,5 @@
 {% load static %}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -74,11 +75,13 @@
     <div class="content">
       <h1 class="mt-4 mb-2 p-5">Lista de Presentes do nosso Chá de Panela</h1>
    <div class="container">
-    <div class="row">
+    <div class="cards mb-3">
     {% for product in product_list %}
     {# Single Card Template:#}
-    <div class="card col-lg-3 col-md-4 col-sm-6 col-12 my-3">
-      <img src="media/{{product.imagem}}" width="200" height="200" class="card-img-top responsive" {% if product.status %} style="" {% else %} style="opacity:0.5;""  {% endif %}>
+    <div class="card">
+      <div class= "w-100 d-flex justify-content-center align-items-center div-img">
+        <img src="media/{{product.imagem}}" width="200" height="200" class="card-img-top p-2" {% if product.status %} style="" {% else %} style="opacity:0.5;"  {% endif %}>
+      </div>
       <div class="card-body" {% if product.status %} style="" {% else %} style="text-decoration: line-through;" {% endif %}>
         <h5 class="card-title" style="text-align:center;">{{ product.name }}</h5>
         <hr style="color: #808080;">
@@ -120,7 +123,7 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="submit" id="botaoSalvar" name="salvarPresente" onclick="myFunction()" data-id="{{ product.id }}" class="btn salvar">Salvar</button>
+                  <button type="submit" id="botaoSalvar" name="salvarPresente" onclick="myFunction()" data-id="{{ product.id }}" class="btn save">Salvar</button>
                 </div>
               </div>
             </div>
