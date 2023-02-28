@@ -18,6 +18,10 @@ pip install -r requirements.txt
 ```
 É preciso entrar no ambiente virtual para rodar o projeto.
 
+```bash
+ source /l/disk0/caios/cha-casamento/.venv/bin/activate
+ ```
+
 Para rodar o projeto utlize:
 ```bash
  django-admin runserver

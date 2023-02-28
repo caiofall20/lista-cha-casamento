@@ -1,14 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;300;500;700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
-@font-face {
-    font-family: 'battalion';
-    src: local('Battalion'),
-    url('../static/fonts/Battalion.ttf') format("truetype");
-}
 
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -24,7 +20,6 @@ time, mark, audio, video {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
 }
 html,body {
@@ -52,20 +47,27 @@ html,body {
 }
 
 .content h1 {
-    font-family: 'Battalion', sans-serif;
+    font-family: 'Great Vibes', cursive;
     text-align: center;
 }
 
-.responsive {
+/* .responsive {
     max-width: 100%;
-    height: auto;
 }
-
-/*Card*/
-.card {
-    width: 19rem;
+*/
+.div-img img{
+    max-height: 15rem;
+    width: 10rem;
 } 
 
+
+/*Card*/
+.cards{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 10px;
+    row-gap: 1em;
+}
 .card-body{
     text-align: center;
 }
@@ -79,13 +81,13 @@ html,body {
     align-items: center;
 }
 
-.card-body .choose, .salvar {
+.card-body .choose, .save {
     background: #81D8F7;
     color: white;
     width: fit-content!important;
 }
 
-.card-body .choose:hover, .salvar:hover {
+.card-body .choose:hover, .save:hover {
     background: #58C8F0;
     border: 1px solid  #58C8F0;
     color: white;
@@ -110,7 +112,7 @@ footer{
     text-align: center;
     background-color: #81D8F7;
     font-weight: bold;
-    font-family: 'Battalion', sans-serif;
+    font-family: 'Great Vibes', cursive;
 }
 
 .modal-title b {
@@ -158,7 +160,7 @@ footer{
         text-align: center;
         margin: auto;
         color: #81D8F7;
-        font-family: 'Battalion', sans-serif;
+        font-family: 'Great Vibes', cursive;
         font-size: 2rem;
     }
     .rhombus {
@@ -269,5 +271,24 @@ footer{
       justify-content: space-between;
      }
   }
-  
 
+  @media screen and (max-device-width: 1500px) {
+    .cards{
+        grid-template-columns: repeat(3, 1fr);
+    }   
+}
+
+@media screen and (max-device-width: 700px) {
+    .cards{
+        grid-template-columns: repeat(2, 1fr);
+    }   
+}
+
+@media screen and (max-device-width: 500px) {
+    .cards{
+        grid-template-columns: 1fr;
+    }   
+}
+
+  
+  
