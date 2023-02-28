@@ -18,7 +18,7 @@
 
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
 
-  <title>Django Cards</title>
+  <title>Carol&Caio</title>
 </head>
   <!-- To place above the incident-modal html -->
  <script>
@@ -28,14 +28,14 @@
 </script>
 
   <script>
-     
+
       $('#botaoSalvar').click(function (e) {
           console.log('Botão id="pesquisarId" clicado e função disparada');
           alert('ENTROU')
           swal("Obrigada", "Te esperamos no dia 18 de Março para comemorar conosco essa data especial!", "success");
         });
-       
-    
+
+
       $('.open-incident').click(function (e) {
         alert('abriu o modal')
         e.preventDefault();
@@ -45,14 +45,14 @@
         e.preventDefault();
         $('#modal').modal('hide');
       });
-   
+
 
     $(window).on('load', function () {
       setTimeout(function () {
         $('body').addClass('overflow-show');
         $('.loading').addClass('d-none');
       }, 2500);
-    });  
+    });
   </script>
 
 <body>
@@ -128,12 +128,12 @@
 
       </div>
     </div>
- 
+
   </form>
-  
+
   {% endfor %}
   {% include "lista/product-modal.html" %}
-  
+
 </div>
 </div>
 </div>
